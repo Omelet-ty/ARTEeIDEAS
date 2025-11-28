@@ -1,64 +1,70 @@
 
-# ArteIDEAS - Web Application
+# 🎨 ArteIDEAS - Plataforma de Personalización de Fotos
 
-This project is a React-based e-commerce platform for personalized photo products (Frames, Prints, Collages), featuring advanced image editing capabilities and AI integration.
+Esta aplicación es una plataforma de comercio electrónico desarrollada en React para la personalización y venta de productos fotográficos (Marcos, Collages, Impresiones). Destaca por su flujo de personalización avanzado, integración con Inteligencia Artificial y una experiencia de usuario optimizada tanto para escritorio como para móviles mediante un simulador integrado.
 
-## 🚀 Features Implemented
+## 🚀 Funcionalidades Implementadas
 
-### 1. UI/UX Design
-- **Landing Page**: 
-  - Custom gradient Hero section (Cyan to Orange).
-  - Redesigned Product Cards for better visual impact (larger images, cleaner text).
-  - Responsive Navigation Bar with persistent search and icons.
-- **Brand Identity**: 
-  - Consistent color palette using Orange (`#FF7F40`) and Teal (`#00A9C3`).
-  - Removal of generic gradients in favor of solid brand colors for buttons and UI elements.
+### 1. Interfaz y Navegación (UI/UX)
+- **Diseño de Marca**: Paleta de colores consistente utilizando Naranja (`#FF7F40`) y Verde Azulado (`#00A9C3`). Estilo limpio sin degradados excesivos.
+- **Simulador Móvil**: 
+  - Un wrapper completo que simula un dispositivo iPhone (Notch, biseles, barra de estado).
+  - Botón en la cabecera para alternar entre "Modo Computadora" y "Modo Celular".
+  - Diseño responsivo que adapta la grilla de productos y el tamaño de las imágenes automáticamente.
+- **Cabecera Responsiva**: 
+  - Logotipo centrado y barra de búsqueda optimizada.
+  - Iconos de navegación (Monitor, Celular, Mis Pedidos, Carrito).
 
-### 2. Product Customization Flow
-- **Product Detail**: Detailed view with image galleries, pricing, and promotion badges.
-- **Customizer**: 
-  - File upload drag-and-drop interface.
-  - **Dynamic Cropping**: Draggable crop overlay that adapts to selected print formats (e.g., 10x15, 13x18).
-  - **Format & Paper Selection**: Logic to calculate prices based on size and paper type (Matte/Glossy).
-  - **Validation**: Prevents adding to cart without required fields (Image, Paper Type, Project Name).
+### 2. Catálogo de Productos
+- **Landing Page**: Hero section con fondo degradado suave (Cyan a Naranja) y tarjetas de productos optimizadas.
+- **Detalle de Producto**: Galería de imágenes, precios (con ofertas tachadas), badges de promoción y descripción detallada.
 
-### 3. Advanced Image Editing
-- **Manual Editor**:
-  - Brightness, Contrast, and Saturation sliders with custom-styled range inputs.
-  - Client-side image processing using HTML Canvas.
-- **AI Editor (Gemini API)**:
-  - Integrated `gemini-2.5-flash-image` model.
-  - **Chat Interface**: Users can instruct the AI to modify images (e.g., "Add a hat", "Change background") via natural language.
-  - **Version History**: Strip of thumbnails allowing users to revert to previous versions of the AI edits.
-  - Optimized layout for both mobile (vertical stack) and desktop.
+### 3. Flujo de Personalización Avanzado
+- **Subida de Archivos**: Interfaz drag-and-drop.
+- **Recorte Dinámico (Cropping)**: 
+  - Herramienta de recorte arrastrable sobre la imagen.
+  - Relación de aspecto forzada según el formato seleccionado (ej: 9x13, 10x15).
+  - **Dimensiones Personalizadas**: Opción para ingresar ancho y largo manual en cm.
+- **Editor de Fotos Manual**: Ajustes de Brillo, Contraste y Saturación mediante sliders personalizados.
+- **Editor con IA (Gemini API)**:
+  - Integración con el modelo `gemini-2.5-flash-image`.
+  - **Chat Interface**: El usuario escribe instrucciones (ej: "Quita el fondo", "Ponle un sombrero") y la IA edita la imagen.
+  - **Historial de Versiones**: Tira de miniaturas para deshacer cambios y volver a versiones anteriores.
+  - **Diseño Móvil**: Layout vertical optimizado (Imagen arriba, Chat abajo) para maximizar la visibilidad.
 
-### 4. Cart & Checkout Process
-- **Shopping Cart**:
-  - Quantity management and item removal.
-  - Real-time subtotal calculation.
-- **Checkout**:
-  - **Delivery Options**: Toggle between "Home Delivery" (dynamic fee) and "Store Pickup" (Free).
-  - **Validation**: Strict rules for Phone/DNI (9 digits only) and Email format.
-  - **Store Info**: Displays store address and map when Pickup is selected.
-- **Payment**:
-  - **Input Formatting**: Auto-spacing for Credit Card numbers (groups of 4) and Expiry Date (MM/YY).
-  - Summary of the final order total.
+### 4. Carrito y Checkout
+- **Carrito de Compras**: Gestión de cantidades, resumen de subtotal y envío estimado.
+- **Checkout (Finalizar Compra)**:
+  - **Validación Estricta**:
+    - Teléfono y DNI: Solo números, exactamente 9 dígitos.
+    - Email: Validación de formato con `@` y `.com`.
+  - **Tipos de Entrega**: 
+    - Envío a Domicilio (con formulario de dirección).
+    - Recojo en Tienda (Gratis - muestra mapa/dirección de la tienda y oculta campos innecesarios).
+- **Pasarela de Pago Simulada**:
+  - Formateo automático de Tarjeta de Crédito (agrupa dígitos de 4 en 4).
+  - Formateo automático de Fecha de Vencimiento (MM/AA).
 
-### 5. Order Management
-- **Order Confirmation**: Success screen with "What's Next" steps and summary.
-- **My Orders**:
-  - Order history accessible via the Box icon in the header.
-  - Displays order status badges (e.g., "Processing").
-  - "View Details" functionality to revisit the confirmation receipt of past orders.
+### 5. Gestión de Pedidos
+- **Confirmación de Pedido**: Pantalla de éxito con resumen financiero, estado y pasos siguientes.
+- **Mis Pedidos**: 
+  - Historial accesible desde el icono de "Caja" en la cabecera.
+  - Listado de pedidos pasados con estados (ej: "En Procesamiento").
+  - Botón "Ver Detalles" para re-imprimir o revisar el recibo de un pedido anterior.
 
-## 🛠 Technologies Used
-- **Frontend**: React 19, TypeScript
-- **Styling**: Tailwind CSS
-- **Icons**: Lucide React
-- **AI**: @google/genai SDK
-- **State Management**: React `useState` & `useRef`
+## 🛠 Tecnologías Utilizadas
 
-## 📦 Data Structure
-- **Cart**: Persists items with specific customization options.
-- **Orders**: In-memory history of confirmed purchases.
-- **Validation**: Regex patterns for form integrity.
+- **Frontend**: React 19, TypeScript.
+- **Estilos**: Tailwind CSS (Diseño utility-first).
+- **Iconos**: Lucide React.
+- **IA**: Google GenAI SDK (`@google/genai`).
+- **Manipulación de Imagen**: HTML5 Canvas API (para recortes y filtros CSS).
+
+## 📱 Adaptabilidad Móvil
+
+Se ha puesto especial énfasis en la experiencia móvil:
+- Las grillas de productos pasan de 4 columnas a 2 columnas.
+- Los formularios y tarjetas reducen su padding.
+- El Editor de IA cambia su disposición para que el teclado no cubra la imagen.
+- Los botones de acción son más grandes y accesibles.
+
